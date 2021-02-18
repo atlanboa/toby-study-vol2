@@ -12,7 +12,7 @@
     <artifactId>vol2</artifactId>
     <version>0.0.1</version>
     <name>vol2</name>
-    <description>toby&apos;s spring vol2</description>
+    <description>toby spring vol2</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -27,6 +27,19 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.3.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.23</version>
+        </dependency>
+
     </dependencies>
 
     <build>

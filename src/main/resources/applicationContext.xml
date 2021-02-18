@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+  	                       http://www.springframework.org/schema/beans/spring-context-3.0.xsd">
 
     <bean id="hello" class="com.toby.vol2.Hello">
         <property name="name" value="Spring"/>
@@ -10,10 +13,13 @@
 
     <bean id="printer" class="com.toby.vol2.StringPrinter"/>
 
-    <bean id="hello" class="com.toby.vol2.Hello" autowire="byName">
-        <property name="name" value="Spring"/>
-    </bean>
+    <context:property-placeholder location="database.properties"/>
 
-    <bean id="printer" class="com.toby.vol2.StringPrinter"/>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+        <property name="driverClass" value="${db.driver-class}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
 
 </beans>
